@@ -94,3 +94,9 @@
   background-color: #f06272;
   text-align: center;
 }
+
+button:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
+  transition: all 0.3s ease;
+}

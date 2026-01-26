@@ -14,7 +14,7 @@ export default function App() {
 
       <div className="main-homepage">
         <p className="welcome">
-          Find Your Desire <br />{" "}
+          Find Your Desired <br />{" "}
           <span className="spn-partner">
             Partner{" "}
             <svg
@@ -36,7 +36,7 @@ export default function App() {
           </span>{" "}
           With Us
         </p>
-        <p className="welcome-2">The Best Dating Platform For Dating</p>
+        <p className="welcome-2">The Best Dating Platform</p>
         <button className="download-bttn">Download App </button>
       </div>
     </div>
