@@ -36,7 +36,7 @@ export default function App() {
           </span>{" "}
           With Us
         </p>
-        <p>The Best Dating Platform For Dating</p>
+        <p className="welcome-2">The Best Dating Platform For Dating</p>
         <button className="download-bttn">Download App </button>
       </div>
     </div>
