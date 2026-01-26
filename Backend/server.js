@@ -18,11 +18,11 @@ const ConnectDb = async () => {
 
 await ConnectDb();
 
-// const allowedOrigins = [""];
+const allowedOrigins = ["http://localhost:5173/"];
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors({origin: allowedOrigins, credentials: True}));
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 // API endpoint
 app.use("/api/authentication", authRouter);

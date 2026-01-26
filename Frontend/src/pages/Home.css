@@ -1,0 +1,76 @@
+.container-homepage {
+  /* background-color: aqua; */
+  background-image: url("../images/undraw_intense-feeling_4i8u.svg");
+  /* background-size: cover; */
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: 90% 40%;
+  height: 100vh;
+  width: 100vw;
+}
+
+.homepage-navbar {
+  /* background-color: blue; */
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+}
+
+.logo-div {
+  display: flex;
+  align-items: center;
+}
+
+.company-name {
+  font-family: "Playwrite GB J Guides", cursive;
+}
+
+.logo {
+  height: 70px;
+}
+
+.nav-home-button {
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.73);
+  background-color: #194388;
+  text-align: center;
+}
+
+.main-homepage {
+  /* background-color: red; */
+  height: calc(100vh - 15vh);
+  padding: 100px 50px 0px 50px;
+}
+
+.welcome {
+  color: #194388;
+  font-size: 70px;
+  font-weight: 700;
+  font-family: "Mystery Quest", system-ui;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.spn-partner {
+  color: #f06272;
+  position: relative;
+  display: inline-block;
+  padding: 10px 10px; /* Adds space for the heart curves */
+  z-index: 1;
+}
+
+.spn-partner svg {
+  position: absolute;
+  top: -20%; /* Adjusts vertical position */
+  left: 0;
+  width: 100%;
+  height: 140%; /* Makes the heart taller than the text */
+  z-index: -1; /* Keeps the heart behind the text */
+  pointer-events: none;
+}
