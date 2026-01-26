@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import transporter from "../config/nodemailer.js";
 import bcrypt from "bcrypt";
 
+// Register User With send Welcome Email
 export const register = async (req, res) => {
   try {
     // Get name email and password from the browser body
@@ -46,5 +47,53 @@ export const register = async (req, res) => {
     res.json({ success: true, message: `Successfully Signed up the User ✔️` });
   } catch (error) {
     return res.json({ success: false, message: error.message });
+  }
+};
+
+// Login User
+export const login = async (req, res) => {
+  try {
+    // Getting the email and password from the browser
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.json({
+        success: false,
+        message: "Email and Password are required 😂",
+      });
+    }
+
+    // Get user from our DataBase by the given email
+    const user = UserModel.findOne({ email });
+
+    if (!user) {
+      return req.json({
+        success: false,
+        message: "User Not found Please Sign Up 😊",
+      });
+    }
+
+    // Comparing Users Password With Database password if is True 🔐
+    const isCorrect = await bcrypt.compare(password, user.password);
+
+    if (!isCorrect) {
+      return res.json({ success: false, message: "Incorrect Password 😤" });
+    }
+
+    // Providing a Token and Cookie 🍪 for 5 days access ✔️
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_STR, {
+      expiresIn: "5d",
+    });
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 5 * 24 * 60 * 60 * 1000,
+    });
+
+    res.json({ success: true, message: "Successfully Logged In 👍" });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
   }
 };
