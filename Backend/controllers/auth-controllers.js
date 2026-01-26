@@ -64,10 +64,10 @@ export const login = async (req, res) => {
     }
 
     // Get user from our DataBase by the given email
-    const user = UserModel.findOne({ email });
+    const user = await UserModel.findOne({ email });
 
     if (!user) {
-      return req.json({
+      return res.json({
         success: false,
         message: "User Not found Please Sign Up 😊",
       });
