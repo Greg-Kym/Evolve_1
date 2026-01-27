@@ -31,12 +31,12 @@ export const register = async (req, res) => {
       from: process.env.SENDER_EMAIL,
       to: email,
       subject: `Welcome To Project X 1st Project`,
-      text: `Welcom to Project X, Your Account has been created with Email: ${email} and Name: ${name}`,
+      text: `Welcome to Project X, Your Account has been created with Email: ${email} and Name: ${name}`,
     };
 
     await transporter.sendMail(emailOptions);
 
-    //   Assigning user with cookies 🍪 with same time as the token i.e 5 days
+    //   Assig 🍪 with same time as thening user with cookies token i.e 5 days
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
