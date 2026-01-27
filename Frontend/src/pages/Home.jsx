@@ -11,9 +11,6 @@ export default function App() {
         </div>
         <button className="nav-home-button">Get Started</button>
       </div>
-      <div></div>
-      <div></div>
-      <d></d
 
       <div className="main-homepage">
         <p className="welcome">
