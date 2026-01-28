@@ -18,9 +18,7 @@ export default function App() {
       <div></div>
       <div></div>
       <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <d></d
       <div></div>
 
       <div className="main-homepage">
