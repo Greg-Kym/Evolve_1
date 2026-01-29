@@ -2,6 +2,7 @@ import express from "express";
 import {
   login,
   logout,
+  passwordReset,
   register,
   sendResetOtp,
   sendVerifyOtp,
@@ -24,9 +25,12 @@ authRouter.post("/logout", logout);
 authRouter.post("/send-verify-otp", userAuth, sendVerifyOtp);
 
 // Verifying the Account
-authRouter.post("/verify-account", verifyEmail);
+authRouter.post("/verify-account", userAuth, verifyEmail);
 
 // Sending Password Reset Otp
-authRouter.post("/send-reset-password-otp", userAuth, sendResetOtp);
+authRouter.post("/send-reset-password-otp", sendResetOtp);
+
+// Resetting the Password
+authRouter.post("/reset-password", passwordReset);
 
 export default authRouter;
