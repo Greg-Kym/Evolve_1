@@ -113,4 +113,42 @@ export const logout = async (req, res) => {
   }
 };
 
-export const sendVerifyOtp = async (req, res) => {};
+export const sendVerifyOtp = async (req, res) => {
+  try {
+    // Get the user ID and find user in database
+    const { userId } = req.body;
+    const user = UserModel.findById(userId);
+
+    // Checking if users account is Verified
+    if (user.isVerified) {
+      return res.json({
+        success: false,
+        message: "Account is already verified ✔️",
+      });
+    }
+
+    // Creating a six digit random otp and store it in users database
+    const otp = String(Math.floor(100000 + Math.random() * 900000));
+    user.verifyOtp = otp;
+    user.verifyOtpExpireAt = Date.now() + 5 * 60 * 1000; //Means will expire in 5mins
+
+    await user.save();
+
+    // Sending Otp Through Email
+    const mailOptions = {
+      from: process.env.SENDER_EMAIL,
+      to: user.email,
+      subject: `Account verification OTP`,
+      text: `Your OTP is ${otp}. Verify your Account using this OTP . OTP will expire in 5 minutes`,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.json({
+      success: true,
+      message: `OTP successfully sent to Email: ${user.email}`,
+    });
+  } catch (error) {
+    req.json({ success: false, message: error.message });
+  }
+};

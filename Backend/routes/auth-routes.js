@@ -19,6 +19,6 @@ authRouter.post("/login", login);
 authRouter.post("/logout", logout);
 
 // Sending the OTP to the users Email
-authRouter.post("/send-verify-otp", userAuth);
+authRouter.post("/send-verify-otp", userAuth, sendVerifyOtp);
 
 export default authRouter;
