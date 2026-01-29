@@ -266,7 +266,7 @@ export const passwordReset = async (req, res) => {
     }
 
     // Fetching user from Database
-    const user = await userModel.findOne({ email });
+    const user = await UserModel.findOne({ email });
 
     if (!user) {
       return res.json({ success: false, message: "User not found" });
@@ -282,7 +282,14 @@ export const passwordReset = async (req, res) => {
       return res.json({ success: false, message: "Otp expired" });
     }
 
-    const hashedPassword = bcrypt.hash(newPassword, 10);
+    // hashing and salting the new Password and saving to Database and resetting to default the corresponding elements
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    user.password = hashedPassword;
+    user.resetOtp = "";
+    user.resetOtpExpireAt = 0;
+
+    await user.save();
 
     return res.json({ success: true, message: "Password Reset Success 👍" });
   } catch (error) {
