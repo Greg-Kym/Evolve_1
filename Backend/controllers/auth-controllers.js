@@ -116,6 +116,7 @@ export const logout = async (req, res) => {
   }
 };
 
+//Sending OTP for Account Verification
 export const sendVerifyOtp = async (req, res) => {
   try {
     // Get the user ID and find user in database
@@ -161,8 +162,70 @@ export const sendVerifyOtp = async (req, res) => {
   }
 };
 
+// Verifying the Users Email with the sent OTP
 export const verifyEmail = async (req, res) => {
   try {
+    // Getting the userId and otp
+    const { userId, otp } = req.body;
+
+    if (!userId || !otp) {
+      return res.json({ success: false, message: "Missing Details 😤" });
+    }
+
+    // Get the user from Database
+    const user = await UserModel.findById(userId);
+
+    if (!user) {
+      return res.json({ success: false, message: "User not found ❌" });
+    }
+
+    // Check if OTP matches
+    if (user.verifyOtp == "" || user.verifyOtp !== otp) {
+      return res.json({ success: false, message: "Invalid OTP ❌" });
+    }
+
+    // Check if OTP has expired
+    if (user.verifyOtpExpireAt < Date.now()) {
+      return res.json({
+        success: false,
+        message: "Otp Has Already Expired ❌",
+      });
+    }
+
+    // Verify the Account and reset the respective details
+    user.isVerified = true;
+    user.verifyOtp = "";
+    user.verifyOtpExpireAt = 0;
+
+    await user.save();
+
+    return res.json({
+      success: true,
+      message: "Account successfully verified",
+    });
+  } catch (error) {
+    return res.json({ success: false, message: error.message });
+  }
+};
+
+export const sendResetOtp = async (req, res) => {
+  try {
+    // Get Users email from browser
+    const { email } = req.body;
+
+    if (!email) {
+      return res.json({ success: false, message: "Email is required" });
+    }
+
+    // Get the User Based on the Email
+    const user = await UserModel.findOne(email);
+
+    if (!user) {
+      return res.json({
+        success: false,
+        message: `User with email ${email} not found ❌`,
+      });
+    }
   } catch (error) {
     return res.json({ success: false, message: error.message });
   }
