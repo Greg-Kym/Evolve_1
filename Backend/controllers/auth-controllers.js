@@ -44,7 +44,10 @@ export const register = async (req, res) => {
       maxAge: 5 * 24 * 60 * 60 * 1000,
     });
 
-    res.json({ success: true, message: `Successfully Signed up the User ✔️` });
+    return res.json({
+      success: true,
+      message: `Successfully Signed up the User ✔️`,
+    });
   } catch (error) {
     return res.json({ success: false, message: error.message });
   }
@@ -92,9 +95,9 @@ export const login = async (req, res) => {
       maxAge: 5 * 24 * 60 * 60 * 1000,
     });
 
-    res.json({ success: true, message: "Successfully Logged In 👍" });
+    return res.json({ success: true, message: "Successfully Logged In 👍" });
   } catch (error) {
-    res.json({ success: false, message: error.message });
+    return res.json({ success: false, message: error.message });
   }
 };
 
@@ -107,9 +110,9 @@ export const logout = async (req, res) => {
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
     });
 
-    res.json({ success: true, message: "Successfully Logged Out 🤣" });
+    return res.json({ success: true, message: "Successfully Logged Out 🤣" });
   } catch (error) {
-    res.json({ success: false, message: error.message });
+    return res.json({ success: false, message: error.message });
   }
 };
 
@@ -149,11 +152,18 @@ export const sendVerifyOtp = async (req, res) => {
 
     await transporter.sendMail(mailOptions);
 
-    res.json({
+    return res.json({
       success: true,
       message: `OTP successfully sent to Email: ${user.email}`,
     });
   } catch (error) {
-    res.json({ success: false, message: error.message });
+    return res.json({ success: false, message: error.message });
+  }
+};
+
+export const verifyEmail = async (req, res) => {
+  try {
+  } catch (error) {
+    return res.json({ success: false, message: error.message });
   }
 };
