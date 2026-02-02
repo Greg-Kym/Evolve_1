@@ -28,8 +28,3 @@ app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use("/api/authentication", authRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT: ${PORT}🔦`));
-
-app.use();
-app.use();
-app.use();
-app.use();
