@@ -36,7 +36,7 @@ export const register = async (req, res) => {
 
     await transporter.sendMail(emailOptions);
 
-    //   Assig 🍪 with same time as thening user with cookies token i.e 5 days
+    //   Assign 🍪 with same time as thening user with cookies token i.e 5 days
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
