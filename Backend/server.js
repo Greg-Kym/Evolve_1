@@ -31,5 +31,3 @@ app.listen(PORT, () => console.log(`Server has started on PORT: ${PORT}🔦`));
 
 app.use();
 app.use();
-app.use();
-app.use();
