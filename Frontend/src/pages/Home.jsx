@@ -12,6 +12,13 @@ export default function App() {
         <button className="nav-home-button">Get Started</button>
       </div>
 
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+
       <div className="main-homepage">
         <p className="welcome">
           Find Your Desired <br />{" "}
