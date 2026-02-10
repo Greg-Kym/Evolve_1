@@ -8,7 +8,7 @@
   background: #f06272;
   background-image: 
     radial-gradient(at 0% 0%, #194388 0px, transparent 50%);
-  background-size: 100% 100%;
+  background-size: 200% 200%;
   overflow: hidden;
   position: relative;
 }

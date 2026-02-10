@@ -17,34 +17,34 @@ const App = () => {
   return (
     <div>
       <ToastContainer position="top-right" />
-      
+
       <Routes>
-        
-        <Route path="/" element={<Home />} /> 
+
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
-        
-        <Route 
-          path="/verify-email" 
+
+        <Route
+          path="/verify-email"
           element={
             <>
-              <Navbar />
+
               <EmailVerify />
             </>
-          } 
+          }
         />
 
-        
-        <Route 
-          path="/dashboard" 
+
+        <Route
+          path="/dashboard"
           element={
             <ProtectedRoute>
-              <Navbar /> 
+              <Navbar />
               <Dashboard />
             </ProtectedRoute>
-          } 
+          }
         />
       </Routes>
     </div>

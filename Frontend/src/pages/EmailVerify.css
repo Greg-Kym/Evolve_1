@@ -1,87 +1,107 @@
-.verify-container {
+.verify-container{
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
-                    url("../images/undraw_intense-feeling_4i8u.svg");
-  background-size: 40%;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-}
+  background: #f06272;
+  background-image: 
+    radial-gradient(at 0% 0%, #194388 0px, transparent 50%);
+  background-size: 200% 200%;
+  overflow: hidden;
+  position: relative;
 
-.verify-form {
-  background: white;
-  padding: 50px 40px;
-  border-radius: 25px;
-  box-shadow: 0 15px 35px rgba(25, 67, 136, 0.15);
-  width: 100%;
-  max-width: 450px; 
+}
+.verify-form{
+    position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 60px 45px;
+  border-radius: 35px;
+  width: 90%;
+  max-width: 440px;
   text-align: center;
-  border-top: 8px solid #f06272;
+  
 }
+.verify-btn{
 
-.verify-title {
-  color: #194388;
-  font-family: "Mystery Quest", system-ui;
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.verify-subtitle {
-  color: #666;
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-
-.otp-inputs {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px; 
-  margin-bottom: 20px;
-}
-
-.otp-inputs input {
-  width: 50px;
-  height: 60px;
-  font-size: 28px;
-  text-align: center;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  outline: none;
-  color: #194388;
-  font-weight: bold;
-  background-color: #f9f9f9;
-  transition: all 0.3s ease;
-}
-
-.otp-inputs input:focus {
-  border-color: #f06272;
-  background-color: #fff;
-  box-shadow: 0 0 8px rgba(240, 98, 114, 0.2);
-}
-
-
-.verify-btn {
   width: 100%;
-  background-color: #194388;
+  padding: 18px;
+  background: #194388; 
   color: white;
-  padding: 15px;
   border: none;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 600;
+  border-radius: 18px;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
   transition: all 0.3s ease;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+.send-otp-btn{
+   width: 80%;
+  padding: 13px;
+  background: #194388; 
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+
+}
+/* .verify-input-group{
+
+  width: 80%;
+  padding: 13px;
+  background: #194388; 
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+
+} */
+ 
+.verify-input-group input{
+
+   width: 100%;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  color: white;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin: 20px auto;
 }
 
-.verify-btn:hover {
-  background-color: #f06272;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(240, 98, 114, 0.3);
+.verify-title{
+  color:  #194388;
+  font-family: "Mystery Quest", system-ui;
+  font-size: 48px;
+}
+.verify-subtitle{
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
