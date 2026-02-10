@@ -6,14 +6,14 @@ import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth-routes.js";
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 // Setting up our Database connection 😍
 const ConnectDb = async () => {
   mongoose.connection.on("connected", () =>
     console.log("Database Connected 👍"),
   );
-  await mongoose.connect(`${process.env.MONGO_URI}`);
+  await mongoose.connect(`${process.env.MONGO_URL}`);
 };
 
 await ConnectDb();
