@@ -32,13 +32,13 @@ export default function App() {
                C 0 60, 50 100, 50 100 
                C 50 100, 100 60, 100 35 
                C 100 0, 50 0, 50 30"
-                stroke="#F06272"
+                stroke="#194388"
                 fill="rgba(240, 98, 114, 0.1)"
                 strokeWidth="3"
               />
             </svg>
           </span>{" "}
-          With Us
+          With Us  <span className="yoo">...</span>
         </p>
         <p className="welcome-2">The Best Dating Platform</p>
         <button className="download-bttn">Download App </button>

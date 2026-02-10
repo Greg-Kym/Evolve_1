@@ -8,6 +8,10 @@
   background-position: 90% 40%;
   height: 100vh;
   width: 100vw;
+  background: #f06272;
+  background-image: 
+    radial-gradient(at 0% 0%, #194388 0px, transparent 50%);
+  background-size: 200% 200%;
 }
 
 .homepage-navbar {
@@ -26,7 +30,7 @@
 
 .company-name {
   font-family: "Playwrite GB J Guides", cursive;
-  color: #f06272;
+  color: #ff3355;
   font-size: 20px;
   font-weight: 500;
 }
@@ -52,7 +56,7 @@
 }
 
 .welcome {
-  color: #194388;
+  color: white;
   font-size: 70px;
   font-weight: 700;
   font-family: "Mystery Quest", system-ui;
@@ -61,11 +65,12 @@
 }
 
 .spn-partner {
-  color: #f06272;
+  color:#ff3355;
   position: relative;
   display: inline-block;
   padding: 10px 10px; /* Adds space for the heart curves */
   z-index: 1;
+  font-weight: 100;
 }
 
 .spn-partner svg {
@@ -79,7 +84,7 @@
 }
 
 .welcome-2 {
-  color: rgb(70, 68, 68);
+  color: white;
   font-size: 30px;
   font-family: "Mystery Quest", system-ui;
   margin-bottom: 50px;
@@ -91,7 +96,11 @@
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.73);
-  background-color: #f06272;
+  background: #ff3355;
+   background-image: 
+    radial-gradient(at 0% 0%, #194388 0px, transparent 55%);
+   background-size: 200% 200%;
+ 
   text-align: center;
 }
 
@@ -99,4 +108,7 @@ button:hover {
   transform: scale(1.05) translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
   transition: all 0.3s ease;
+}
+.yoo{
+  color: #ff3355;
 }
