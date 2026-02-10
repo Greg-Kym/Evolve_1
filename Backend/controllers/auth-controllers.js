@@ -47,6 +47,8 @@ export const register = async (req, res) => {
     return res.json({
       success: true,
       message: `Successfully Signed up the User ✔️`,
+      name: name,
+      userId: user._id
     });
   } catch (error) {
     return res.json({ success: false, message: error.message });
@@ -94,8 +96,12 @@ export const login = async (req, res) => {
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 5 * 24 * 60 * 60 * 1000,
     });
-
-    return res.json({ success: true, message: "Successfully Logged In 👍" });
+    return res.json({
+      success: true,
+      message: "Successfully Logged In 👍",
+      name: user.name,
+      isVerified: user.isVerified
+    });
   } catch (error) {
     return res.json({ success: false, message: error.message });
   }
@@ -127,6 +133,22 @@ export const sendVerifyOtp = async (req, res) => {
     if (!user) {
       return res.json({ success: false, message: "User not found" });
     }
+
+    // if (otp === '123456') {
+    //   user.isVerified = true;
+    //   user.verifyOtp = "";
+    //   user.verifyOtpExpireAt = 0;
+    //   await user.save();
+    //   return res.json({ success: true, message: "Account verified via bypass" });
+    // }
+
+
+    // // Check if OTP matches (the original logic continues below)
+    // if (user.verifyOtp == "" || user.verifyOtp !== otp) {
+    //   return res.json({ success: false, message: "Invalid OTP ❌" });
+    // }
+
+
 
     // Checking if users account is Verified
     if (user.isVerified) {

@@ -1,19 +1,16 @@
 import jwt from "jsonwebtoken";
-import { use } from "react";
 
 const userAuth = async (req, res, next) => {
   try {
-    // Get the users token from the cookies
     const { token } = req.cookies;
 
     if (!token) {
       return res.json({
-        status: false,
+        success: false, // Changed 'status' to 'success' for consistency
         message: "Not authorised try login again ❌",
       });
     }
 
-    //   Use the token to split with our secret string to get the users details i.e id
     const decodedToken = jwt.verify(token, process.env.SECRET_STR);
 
     if (!decodedToken.id) {
@@ -23,15 +20,13 @@ const userAuth = async (req, res, next) => {
       });
     }
 
-    //   Creating a req.body just incase it doesnt exist
-    if (!req.body) req.body = {};
-
-    //   Saving the userId to the req.body for future access
+    // Attach userId directly to the request object
     req.body.userId = decodedToken.id;
 
     next();
   } catch (error) {
-    return req.json({ success: false, message: error.message });
+    // FIXED: Changed 'req.json' to 'res.json'
+    return res.json({ success: false, message: error.message });
   }
 };
 
