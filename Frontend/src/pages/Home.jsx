@@ -11,15 +11,10 @@ export default function App() {
           <img src={logoImage} alt="Mountain-Logo" className="logo" />
           <p className="company-name">Mountain 0f Love</p>
         </div>
-        <button className="nav-home-button" onClick={() => navigate("/login")}>Get Started</button>
+        <button className="nav-home-button" onClick={() => navigate("/login")}>
+          Get Started
+        </button>
       </div>
-
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
 
       <div className="main-homepage">
         <p className="welcome">
