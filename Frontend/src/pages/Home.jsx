@@ -17,6 +17,7 @@ export default function App() {
       </div>
 
       <div className="main-homepage">
+
         <p className="welcome">
           Find Your Desired <br />{" "}
           <span className="spn-partner">
@@ -40,9 +41,10 @@ export default function App() {
           </span>{" "}
           With Us  <span className="yoo">...</span>
         </p>
-        <p className="welcome-2">The Best Dating Platform</p>
+        <p className="welcome-2">The Best Dating Platform.</p>
         <button className="download-bttn">Download App </button>
       </div>
+
     </div>
   );
 }
