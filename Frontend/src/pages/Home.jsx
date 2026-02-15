@@ -40,16 +40,6 @@ export default function App() {
           </span>{" "}
           With Us <span className="yoo">...</span>
         </p>
-
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
         <p className="welcome-2">The Best Dating Platform.</p>
         <button className="download-bttn">Download App </button>
       </div>
