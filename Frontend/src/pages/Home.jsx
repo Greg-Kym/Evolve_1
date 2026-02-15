@@ -45,15 +45,6 @@ export default function App() {
         <div>hello</div>
         <div>hello</div>
         <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
         <p className="welcome-2">The Best Dating Platform.</p>
         <button className="download-bttn">Download App </button>
       </div>
