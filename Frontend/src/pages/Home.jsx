@@ -16,6 +16,10 @@ export default function App() {
         </button>
       </div>
 
+      <div></div>
+      <div></div>
+      <div></div>
+
       <div className="main-homepage">
         <p className="welcome">
           Find Your Desired <br />{" "}
